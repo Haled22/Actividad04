@@ -1,12 +1,16 @@
 #include <stdio.h>
 
+#define MAX_CARACTERES 20
 
 void menu();
 void capturar_enteros();
+void mostrar(int n, char cadena[]);
 
 int main(){
 
     char op;
+    char cadena[MAX_CARACTERES];
+    int n;
 
     do{
         menu();
@@ -14,6 +18,13 @@ int main(){
         switch(op){
             case '1':  capturar_enteros();  break;
             case '2':
+                printf(" Escribe una cadena de hasta 20 caracteres: ");
+                fflush(stdin);
+                fgets(cadena, sizeof(cadena), stdin);
+                printf("\n Cuantas vecez deseas reptir la cadena?");
+                scanf("%i",&n);
+                mostrar(n, cadena);
+                break;
             case '3':
             default: break;
         }
@@ -51,4 +62,11 @@ void capturar_enteros(){
     promedio=suma/5.0;
     printf("\n Suma: %i",suma);
     printf("\n Promedio: %f",promedio);
+}
+
+void mostrar(int n, char cadena[]){
+    for(size_t i=0; i<n; i++){
+        printf("%s",cadena);
+    }
+
 }
