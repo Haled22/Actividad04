@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "personaje.h"
 
 #define MAX_CARACTERES 20
 
@@ -21,11 +22,12 @@ int main(){
                 printf(" Escribe una cadena de hasta 20 caracteres: ");
                 fflush(stdin);
                 fgets(cadena, sizeof(cadena), stdin);
-                printf("\n Cuantas vecez deseas reptir la cadena?");
+                printf(" Cuantas vecez deseas reptir la cadena? ");
                 scanf("%i",&n);
                 mostrar(n, cadena);
                 break;
-            case '3':
+            case '3': capturar_personaje();  break;
+            case '4': mostrar_personaje();   break;
             default: break;
         }
         fflush(stdin);
@@ -39,6 +41,7 @@ void menu(){
     printf("\n 1) Capturar enteros");
     printf("\n 2) Mostrar cadena n veces");
     printf("\n 3) Agregar personaje");
+    printf("\n 4) Mostrar personajes");
     printf("\n 0) Salir");
     printf("\n Opcion: ");
 }
